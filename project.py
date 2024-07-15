@@ -10,8 +10,16 @@ class menudrivers:
         for i in driverlist:
             print(driverlist[i],end="\n")
 
+    def add_drivers():
+        driver_name = input("enter the driver name:")
         
-driver1 = menudrivers("max verstappen","akkar")
+        driver_startcity = input("enter the driver start city:")
+        newdriver = (driver_name,driver_startcity)
+        driverlist.append(newdriver)
+        
 
+
+driver1 = menudrivers("max verstappen","akkar")
+driverlist=[]
 
 
