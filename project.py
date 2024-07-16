@@ -13,7 +13,7 @@ class main:
 
 
 
-
+#"""""
 class menudrivers:
     driverlist = []
     def __init_subclass__(cls):
@@ -25,6 +25,16 @@ class menudrivers:
        counter+=1
        self.name = name
        self.startcity = startcity
+
+    def options():
+        options = input("1. to view all drivers \n 2.to add driver \n 3.to go back to main menu")
+
+        if options == 1 :
+            menudrivers.view_drivers
+        elif options ==2:
+            menudrivers.add_drivers
+        else:
+            print("h3llo")
     
    
 
@@ -77,9 +87,9 @@ class menudrivers:
 print(menudrivers.add_drivers())
 print(menudrivers.view_drivers())
 
-
+#"""
 class cities:
-    
+    city_list = []
     def __init__(self,name) :
         self.name = name
 
@@ -88,7 +98,17 @@ class cities:
     akkar = ("akkar")
     zahle =("zahle")
 
-    def add_city(cities city):
+    def add_city(city):
+        cities.city_list.append(city)
+
+cities.add_city(cities.beirut)
+cities.add_city(cities.jbeil)
+cities.add_city(cities.akkar)
+cities.add_city(cities.zahle)
+
+print(cities.city_list)
+
+
 
 
 
