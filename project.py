@@ -18,10 +18,11 @@ class menudrivers:
     driverlist = []
     def __init_subclass__(cls):
         pass
-    def __init__(self,workerid,name,startcity) :
+    def __init__(self,name,startcity) :
        counter=0
     
-       self.workerid = "id00"
+       self.workerid = "id00"+counter
+       counter+=1
        self.name = name
        self.startcity = startcity
     
@@ -35,6 +36,13 @@ class menudrivers:
             driver_name = input("enter the driver name:")
         
             driver_startcity = input("enter the driver start city:")
+            for i in cities.cities:
+                if driver_startcity != driver_startcity:
+                    input = input("this city is not added , do you want to add it ? :")
+                    if input == "yes":
+                        cities.cities.append(driver_startcity)
+                    else:
+                        print("the city will not be added")
             newdriver = (driver_name,driver_startcity)
             menudrivers.driverlist.append(newdriver)
             answer = input("do you want to add another driver ?")
@@ -60,6 +68,18 @@ class menudrivers:
 
 print(menudrivers.add_drivers())
 print(menudrivers.view_drivers())
+
+
+class cities:
+    cities = []
+
+
+
+
+
+
+
+
 
 
 
