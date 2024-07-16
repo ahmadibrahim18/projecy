@@ -1,14 +1,21 @@
 
 class main:
     def welcome():
-        option1 = input("1.to go to the drivers menu:")
-        option2 = input("2.to go to the cities menu:")
-        option3 = input("3.to exit the system:")
+        option1 = input("1.to go to the drivers menu:\n2.to go to the cities menu: \n 3.to exit the system:")
+        
+
+        if option1 == 1:
+            menudrivers
+        elif option1 ==2:
+            cities_menu
+        else:
+            exit
+            
 
 
 
 class menudrivers:
-    
+    driverlist = []
     def __init_subclass__(cls):
         pass
     def __init__(self,name,startcity) :
@@ -27,12 +34,15 @@ class menudrivers:
         
         driver_startcity = input("enter the driver start city:")
         newdriver = (driver_name,driver_startcity)
-        driverlist.append(newdriver)
+        menudrivers.driverlist.append(newdriver)
     
     
     def view_drivers():
-        for i in driverlist:
-            print(driverlist[i],end="\n")
+        counter = 0
+        for i in menudrivers.driverlist:
+
+            print(menudrivers.driverlist[counter],end="\n")
+            counter+=1
         
 
 
