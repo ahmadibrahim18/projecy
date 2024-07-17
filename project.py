@@ -64,7 +64,7 @@ class menudrivers:
                         
                         cities.citylist.append(driver_startcity)
                         
-                        return cities.addEdge(cities.city_list,near_city)
+                        return cities.addEdge(cities.city_list,driver_startcity,near_city)
                     
                     else:
                         
