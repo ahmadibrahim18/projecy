@@ -58,8 +58,10 @@ class menudrivers:
                 if cities.citylist != driver_startcity:
                     user_answer = input("this city is not added , do you want to add it ? :")
                     if user_answer == "yes":
+                        near_city = input("enter the nearest city :")
                         # ask the user if he want to add the city to database
                         cities.citylist.append(driver_startcity)
+                        return cities.addEdge(cities.city_list,near_city)
                     else:
                         print("the city will not be added")
             # create an object for a new driver
@@ -103,6 +105,10 @@ class cities:
     akkar = ("akkar")
     zahle =("zahle")
     saida = ("saida")
+    def addEdge(adj, main_city, edgecity):
+ 
+        adj[main_city].append(edgecity)
+        adj[edgecity].append(main_city)
 
     def citiesoption():
         answer = input("1. To Show Cities \n 2.Print Neighboring Cities \n 3.Print Drivers delivering to City")
@@ -115,11 +121,18 @@ class cities:
             cities.drivers_to_city()
         else:
             print("invalid input")
-
-
-
+        
     def add_city(city):
         cities.city_list.append(city)
+    
+    def show_cities():
+        for i in citylist:
+            print(i)
+
+
+
+
+    
 
 cities.add_city(cities.beirut)
 cities.add_city(cities.jbeil)
@@ -140,21 +153,21 @@ citylist = {
 
 visited = set() # Set to keep track of visited nodes of graph.
 
-def dfs(visited, citylist, node): 
+def neigbour_city(visited, citylist, city): 
      #function for dfs 
     city_byuser= input("enter the city you want:")
     if city_byuser not in visited:
         print (city_byuser)
         visited.add(city_byuser)
         for neighbour in citylist[city_byuser]:
-            dfs(visited, citylist, neighbour)
+            neigbour_city(visited, citylist, neighbour)
 
-# Driver Code
+
 
 dfs(visited, citylist, cities.zahle)
 
-def neighbor_cities(city):
-        print("hello world")
+
+        
     
 
 
