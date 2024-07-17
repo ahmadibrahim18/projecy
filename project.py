@@ -2,17 +2,17 @@ import sys
 
 class main:
     def __init__(self):
-        self.menu_drivers = MenuDrivers()
-        self.cities = Cities()
+        self.menu_drivers = menudrivers()
+        self.cities = cities()
     
     def welcome(self):
         option1 = input("1.to go to the drivers menu:  2.to go to the cities menu:   3.to exit the system:")
         
 
         if option1 == "1":
-          self.menudriveroption()
+          self.menu_drivers.menudriveroption
         elif option1 =="2":
-             self.citiesoption()
+             self.cities.citiesoption
         else:
             sys.exit()
 
@@ -23,22 +23,8 @@ class main:
 #"""""
 class menudrivers:
     driverlist = []
-   
-
-    # CONSTRUCTOR FOR DRIVER
-    def __init__(self,name,startcity) :
-       counter=0
-    
-       self.workerid = "id00"+counter
-       counter+=1
-       self.name = name
-       self.startcity = startcity
-
-    driver1 = ("max verstapen","jbeil")
-# LET THE USER CHOOSE THE FUNCTION HE WANT 
-
-
-
+    def __init__(self):
+        pass
 
 
 
@@ -101,9 +87,9 @@ class menudrivers:
         options = input("1. to view all drivers \n 2.to add driver \n 3.to go back to main menu")
 
         if options == 1 :
-            self.add_drivers
+            self.add_drivers()
         elif options ==2:
-            self.view_drivers
+            self.view_drivers()
         elif options == 3:
             sys.exit
         else:
@@ -112,8 +98,8 @@ class menudrivers:
 class cities:
     city_list = []
     city_graph = {}
-    def __init__(self,name) :
-        self.name = name
+    def __init__(self) :
+        pass
 
     beirut = ("beirut")
     jbeil = ("jbeil")
@@ -142,17 +128,36 @@ class cities:
             if city not in cities.city_list:
         
                 cities.city_list.append(city)
+                cities.city_graph [city] = []
             else:
                 print("this city is already added")
 
     def show_cities():
-        for i in cities.citylist:
-            print(i)
+        if len(cities.city_list) == 0:
+            print("no cities to show !")
+        else:
+
+            for i in cities.citylist:
+                print(i)
+
+    def neighbor_cities(self):
+
+        city = input("enter the name of the city:")
+        if city in cities.city_graph:
+            print("the neighbor of {city} is "+ cities.city_graph[city])
+        else:
+            print("{city} is not in the city list.")
+
+
+
+    
 
 
 
 
-
+if __name__ == "__main__":
+    system = main()
+    system.welcome()
 
 
 #"""
