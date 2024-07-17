@@ -1,23 +1,26 @@
 
 class main:
-    def welcome():
-        option1 = input("1.to go to the drivers menu:\n2.to go to the cities menu: \n 3.to exit the system:")
+    ''''
+    def welcome(self):
+        option1 = input("1.to go to the drivers menu:  2.to go to the cities menu:   3.to exit the system:")
         
 
-        if option1 == 1:
-            menudrivers
-        elif option1 ==2:
-            cities_menu
+        if option1 == "1":
+           return menudrivers.menudriveroption()
+        elif option1 =="2":
+            return cities.citiesoption()
         else:
             exit
 
+   '''
 
 
 #"""""
 class menudrivers:
     driverlist = []
-    def __init_subclass__(cls):
-        pass
+   
+
+    
     def __init__(self,name,startcity) :
        counter=0
     
@@ -26,17 +29,20 @@ class menudrivers:
        self.name = name
        self.startcity = startcity
 
-    def options():
+    driver1 = ("max verstapen","jbeil")
+
+    def menudriveroption():
         options = input("1. to view all drivers \n 2.to add driver \n 3.to go back to main menu")
 
         if options == 1 :
-            menudrivers.view_drivers
+            print(menudrivers.view_drivers)
         elif options ==2:
-            menudrivers.add_drivers
+            print(menudrivers.add_drivers)
         else:
             print("h3llo")
-    
-   
+
+
+
 
 
 # here is the add driver function
@@ -69,7 +75,7 @@ class menudrivers:
                 
             else:
                 result == False
-                print(menudrivers.view_drivers())
+               # print(menudrivers.view_drivers())
         
 
     
@@ -84,8 +90,7 @@ class menudrivers:
 
 
 
-print(menudrivers.add_drivers())
-print(menudrivers.view_drivers())
+
 
 #"""
 class cities:
@@ -97,6 +102,21 @@ class cities:
     jbeil = ("jbeil")
     akkar = ("akkar")
     zahle =("zahle")
+    saida = ("saida")
+
+    def citiesoption():
+        answer = input("1. To Show Cities \n 2.Print Neighboring Cities \n 3.Print Drivers delivering to City")
+
+        if answer == "1":
+            cities.showcities()
+        elif answer == "2":
+            cities.neighbor_cities()
+        elif answer =="3":
+            cities.drivers_to_city()
+        else:
+            print("invalid input")
+
+
 
     def add_city(city):
         cities.city_list.append(city)
@@ -105,8 +125,38 @@ cities.add_city(cities.beirut)
 cities.add_city(cities.jbeil)
 cities.add_city(cities.akkar)
 cities.add_city(cities.zahle)
+cities.add_city(cities.saida)
 
-print(cities.city_list)
+#1
+# print(cities.city_list)
+citylist = {
+  cities.beirut : [cities.jbeil],
+  cities.jbeil : [cities.beirut, cities.akkar],
+  cities.saida : [cities.zahle],
+  cities.zahle : [cities.saida],
+  cities.akkar : [cities.jbeil]
+  
+}
+
+visited = set() # Set to keep track of visited nodes of graph.
+
+def dfs(visited, citylist, node): 
+     #function for dfs 
+    city_byuser= input("enter the city you want:")
+    if city_byuser not in visited:
+        print (city_byuser)
+        visited.add(city_byuser)
+        for neighbour in citylist[city_byuser]:
+            dfs(visited, citylist, neighbour)
+
+# Driver Code
+
+dfs(visited, citylist, cities.zahle)
+
+def neighbor_cities(city):
+        print("hello world")
+    
+
 
 
 
