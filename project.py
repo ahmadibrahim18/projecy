@@ -104,11 +104,14 @@ class menudrivers:
             self.add_drivers
         elif options ==2:
             self.view_drivers
+        elif options == 3:
+            sys.exit
         else:
-            print("")
+            print("invalid input, Enter 1,2,3 .")
 
 class cities:
     city_list = []
+    city_graph = {}
     def __init__(self,name) :
         self.name = name
 
@@ -135,7 +138,12 @@ class cities:
             print("invalid input")
 
     def add_city(city):
-        cities.city_list.append(city)
+        for i in cities.city_list:
+            if city not in cities.city_list:
+        
+                cities.city_list.append(city)
+            else:
+                print("this city is already added")
 
     def show_cities():
         for i in cities.citylist:
