@@ -149,6 +149,29 @@ class cities:
             print("{city} is not in the city list.")
 
 
+    def deliver_to(self,visited,graph,city):
+        driver_to_city = []
+
+        queue = [city]
+
+        while queue:
+            current = queue.pop(0)
+            if current not in visited:
+                visited.add(current)
+
+                queue.extend(graph[current])
+
+                for driver in menudrivers.driverlist:
+                    if driver["startcity"] == current:
+                        driver_to_city.append(driver)
+
+        if not driver_to_city:
+            print("No available drivers to this {city}")
+        else:
+            for driver in driver_to_city:
+                print(driver)
+
+
 
     
 
