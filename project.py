@@ -171,6 +171,9 @@ class cities:
             for driver in driver_to_city:
                 print(driver)
 
+cities = ["jbeil","beirut","akkar","zahle","saida"]
+
+
 
 
     
